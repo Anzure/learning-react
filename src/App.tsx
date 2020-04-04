@@ -1,40 +1,26 @@
 import React from 'react';
 import './App.css';
-import CarView from './components/CarView';
-import PersonView from './components/PersonView';
-import Car from './interfaces/Car';
 import {
   BrowserRouter as Router,
   Switch,
   Route
 } from "react-router-dom";
+import HeaderView from './components/HeaderView';
+import FooterView from './components/FooterView';
+import TodoManager from './components/TodoManager';
 
 export default function App() {
-
-  let cars: Car[] = [
-    {
-      brand: "Porche",
-      model: "Carrera",
-      manufactured: new Date(2019, 6, 15)
-    },
-    {
-      brand: "Audi",
-      model: "A4",
-      manufactured: new Date(2005, 6, 15)
-    },
-  ];
 
   return (
     <div className="App">
       <Router>
+        <HeaderView />
         <Switch>
           <Route path="/" strict exact>
-            <PersonView firstName="André" lastName="Mathisen" cars={cars} />
-          </Route>
-          <Route path="/car" strict exact>
-            <CarView brand={cars[0].brand} model={cars[0].model} manufactured={cars[0].manufactured} />
+            <TodoManager />
           </Route>
         </Switch>
+        <FooterView />
       </Router>
     </div>
   );
