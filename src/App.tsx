@@ -1,5 +1,4 @@
-import React, { constructor } from 'react';
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
 import CarView from './components/CarView';
 import PersonView from './components/PersonView';
@@ -7,8 +6,7 @@ import Car from './interfaces/Car';
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
-  Link
+  Route
 } from "react-router-dom";
 
 export default function App() {
@@ -28,16 +26,16 @@ export default function App() {
 
   return (
     <div className="App">
-    <Router>
-      <Switch>
-        <Route path="/" strict exact>
+      <Router>
+        <Switch>
+          <Route path="/" strict exact>
             <PersonView firstName="André" lastName="Mathisen" cars={cars} />
-        </Route>
-        <Route path="/car" strict exact>
+          </Route>
+          <Route path="/car" strict exact>
             <CarView brand={cars[0].brand} model={cars[0].model} manufactured={cars[0].manufactured} />
-        </Route>
-      </Switch>
-    </Router>
+          </Route>
+        </Switch>
+      </Router>
     </div>
   );
 }

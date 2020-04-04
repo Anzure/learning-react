@@ -1,29 +1,27 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Person from '../interfaces/Person';
 import { Link } from "react-router-dom";
 
-export default class PersonView extends Component<Person> {
-    render() {
-        
-        const { firstName, middleName, lastName, cars }: Person = this.props;
+export default function PersonView(person: Person) {
 
-        const fullName: string = firstName + ' ' + (middleName ? middleName + ' ' : '') + lastName;
+    const { firstName, middleName, lastName, cars }: Person = person;
 
-        // car.brand + "_" + car.model + (car.manufactured ? ("@" + car.manufactured) : '')
+    const fullName: string = firstName + ' ' + (middleName ? middleName + ' ' : '') + lastName;
 
-        return (
-            <div>
-                <h3>Heisann, {fullName}!</h3>
+    // car.brand + "_" + car.model + (car.manufactured ? ("@" + car.manufactured) : '')
 
-                <h2>Du eier disse bilene:</h2>
-                
-                {cars && cars.map((car) => (
-                    <p>
-                        <Link to={'/car'}>{car.brand} {car.model}</Link>
-                    </p>
-                ))}
+    return (
+        <div>
+            <h3>Heisann, {fullName}!</h3>
 
-            </div>
-        );
-    }
+            <h2>Du eier disse bilene:</h2>
+
+            {cars && cars.map((car) => (
+                <p>
+                    <Link to={'/car'}>{car.brand} {car.model}</Link>
+                </p>
+            ))}
+
+        </div>
+    );
 }

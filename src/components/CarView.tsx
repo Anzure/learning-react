@@ -1,19 +1,17 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Car from '../interfaces/Car';
 
-export default class CarView extends Component<Car> {
-    render() {
-        
-        const { brand, model, manufactured }: Car = this.props;
+export default function CarView(car: Car) {
 
-        const manufactureYear: string | number = manufactured && manufactured.getFullYear() || 'unknown';
+    const { brand, model, manufactured }: Car = car;
 
-        return (
-            <div>
-                <p>Brand: {brand}</p>
-                <p>Model: {model}</p>
-                <p>Manufactured: {manufactureYear}</p>
-            </div>
-        );
-    }
+    const manufactureYear: string | number = manufactured ? manufactured.getFullYear() : 'unknown';
+
+    return (
+        <div>
+            <p>Brand: {brand}</p>
+            <p>Model: {model}</p>
+            <p>Manufactured: {manufactureYear}</p>
+        </div>
+    );
 }
