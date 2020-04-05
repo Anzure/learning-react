@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import TodoListView from './TodoListView';
 import TodoItem from '../interfaces/TodoItem';
 import { v4 as uuid } from 'uuid';
@@ -7,6 +7,17 @@ export default function TodoManager() {
 
     const [todos, setTodos] = useState<TodoItem[]>([]);
     const todoNameRef = useRef<HTMLInputElement>(null);
+
+    useEffect(() => {
+        const cookie: string | null = localStorage.getItem('saved-todo-list');
+        if (cookie === null) return;
+        const storedTodos: TodoItem[] = JSON.parse(cookie);
+        setTodos(storedTodos);
+    }, []);
+
+    useEffect(() => {
+        localStorage.setItem('saved-todo-list', JSON.stringify(todos));
+    }, [todos]);
 
     function addTaskToList(): void {
         const name: string | null = todoNameRef.current ? todoNameRef.current.value : '';
