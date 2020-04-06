@@ -51,9 +51,15 @@ export default function TodoManager() {
 
             <TodoListView todos={todos} toggle={toggleComplededTask} />
 
-            <input ref={todoNameRef} type="text" />
-            <button onClick={addTaskToList}>Add task</button>
-            <button onClick={clearCompletedTasks}>Clear</button>
+            <div>
+                <input ref={todoNameRef} type="text" />
+                <button onClick={addTaskToList}>Add task</button>
+                <button onClick={clearCompletedTasks}>Clear</button>
+            </div>
+
+            <div>
+                <p>You have {todos.filter((todo) => !todo.completed).length} tasks left.</p>
+            </div>
 
         </div>
     );
