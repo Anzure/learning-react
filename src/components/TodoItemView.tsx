@@ -9,7 +9,7 @@ export default function TodoItemView(props: {
     const { id, name, completed }: TodoItem = props.todo;
 
     return (
-        <li>
+        <li className="list-group-item">
             <input type="checkbox" onChange={(param) => props.toggle(id)} checked={completed}></input>
             <span>{name}</span>
         </li>

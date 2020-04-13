@@ -10,9 +10,9 @@ export default function TodoListView(props: {
     return (
         <div>
 
-            <h2>My ToDo list:</h2>
+            <h3>My ToDo list:</h3>
 
-            <ul>
+            <ul className="list-group">
                 {props.todos.map((todo) => (
                     <TodoItemView key={todo.id} todo={todo} toggle={props.toggle} />
                 ))}

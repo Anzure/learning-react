@@ -2,8 +2,10 @@ import React from 'react';
 
 export default function FooterView() {
     return (
-        <div>
-            Copyright (c) 2020
-        </div>
+        <footer className="footer">
+            <div className="container">
+                <span className="text-muted">Copyright (c) 2020</span>
+            </div>
+        </footer>
     );
 }

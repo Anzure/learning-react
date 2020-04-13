@@ -47,20 +47,22 @@ export default function TodoManager() {
     }
 
     return (
-        <div>
+        <div className="container">
 
             <TodoListView todos={todos} toggle={toggleComplededTask} />
 
-            <div>
-                <input ref={todoNameRef} type="text" />
-                <button onClick={addTaskToList}>Add task</button>
-                <button onClick={clearCompletedTasks}>Clear</button>
+            <div className="input-group mb-3">
+                <input className="form-control" ref={todoNameRef} type="text" />
             </div>
+            <div className="btn-group">
+                <button className="btn btn-primary" onClick={addTaskToList}>Add task</button>
+                <button className="btn btn-warning" onClick={clearCompletedTasks}>Clear</button>
+            </div >
 
             <div>
-                <p>You have {todos.filter((todo) => !todo.completed).length} tasks left.</p>
+                <h5>You have {todos.filter((todo) => !todo.completed).length} tasks left.</h5>
             </div>
 
-        </div>
+        </div >
     );
 }
