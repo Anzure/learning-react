@@ -10,8 +10,10 @@ export default function TodoItemView(props: {
 
     return (
         <li className="list-group-item">
-            <input type="checkbox" onChange={(param) => props.toggle(id)} checked={completed}></input>
-            <span>{name}</span>
+            <div className="custom-control custom-checkbox">
+                <input type="checkbox" className="custom-control-input" id={id} onChange={(param) => props.toggle(id)} checked={completed}></input>
+                <label className="custom-control-label" htmlFor={id}>{name}</label>
+            </div>
         </li>
     );
 }

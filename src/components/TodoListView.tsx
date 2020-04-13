@@ -12,7 +12,7 @@ export default function TodoListView(props: {
 
             <h3>My ToDo list:</h3>
 
-            <ul className="list-group">
+            <ul className="list-group list-group-flush">
                 {props.todos.map((todo) => (
                     <TodoItemView key={todo.id} todo={todo} toggle={props.toggle} />
                 ))}
